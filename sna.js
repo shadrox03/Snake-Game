@@ -1,6 +1,6 @@
 function init(){
     
-   // console.log("Init");
+   
     canvas = document.getElementById('mycanvas');
     pen = canvas.getContext('2d');
     W = canvas.width;
@@ -39,18 +39,14 @@ function init(){
             var headX = this.cells[0].x;
             var headY = this.cells[0].y;
             
-            //Assuming Snake is moving right
-            //Insertion at head;
-           // nextHeadX = headX+1;
             
-            //this.cells.unshift({x:nextHeadX,y:headY});
             
             if(headX==food.x && headY==food.y){
                 food = getRandomFood();
                 score++;
             }
             else{
-                //Pop last cell if food not eaten
+                
                 this.cells.pop();
             }
             
@@ -72,11 +68,11 @@ function init(){
                 nextX = headX;
                 nextY = headY - 1;
             }
-            //Insert the new cell at head/front
+            
             this.cells.unshift({x:nextX,y:nextY});
             
             
-            //Find out the last coordinate (boundaries)
+            
             var last_x = Math.round(W/10);
             var last_y = Math.round(H/10);
             
@@ -92,8 +88,7 @@ function init(){
     };
     snake.createSnake();
     
-    //Add Event listeners to our game
-    //Listen for keyboard events.
+    
     
     function KeyPressed(e){
         
@@ -125,7 +120,7 @@ function draw(){
     snake.drawSnake();
     console.log("In draw");
     
-    //Lets us draw the food
+ 
     
     pen.fillStyle = food.color;
     
@@ -172,5 +167,5 @@ function getRandomFood(){
 }
 
 init();
-//Call Game Looper after t time
+
 var f = setInterval(gameLoop,100);
